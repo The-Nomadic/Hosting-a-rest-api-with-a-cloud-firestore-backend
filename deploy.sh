@@ -1,7 +1,8 @@
-GOOGLE_PROJECT_ID = $PROJECT_ID
+GOOGLE_PROJECT_ID=$PROJECT_ID
 
 gcloud builds submit --tag gcr.io/$GOOGLE_PROJECT_ID/barkbarkapi \
-  --project=$GOOGLE_PROJECT_ID
+  --project=$GOOGLE_PROJECT_ID \
+  --logging=CLOUD_LOGGING_ONLY
 
 gcloud beta run deploy barkbark-api \
   --image gcr.io/$GOOGLE_PROJECT_ID/barkbarkapi \
